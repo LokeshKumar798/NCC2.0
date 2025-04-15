@@ -1,0 +1,37 @@
+{% extends "Login_Page/login_base_template.html" %}
+{% load static %}
+
+{% block css_block %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block title %}
+    NCC (National Cadet Corps)
+{% endblock %}
+{% block start %}
+  <table class="table table-bordered table2">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No.</th>
+        <th scope="col">Student ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Rejection Reason</th>
+        <th scope="col">Rejected By</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in rejected_students %}
+        <tr><th scope="row">{{ forloop.counter }}</th>
+            <td>{{ student.CBSE_No }}</td>
+            <td>{{ student.Name }}</td>
+            <td>{{ student.rejection_reason }}</td>
+            <td>{{ student.status }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No rejected admit cards found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

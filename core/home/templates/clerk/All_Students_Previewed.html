@@ -1,0 +1,18 @@
+{% extends "Login_Page/login_base_template.html" %}
+{% load static %}
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %}
+    NCC (National Cadet Corps)
+{% endblock %}
+
+{% block start %}
+    <div class="previewed-notice">
+        <h1>All Students Have Been Previewed</h1>
+        <p>All students have either been approved or rejected. No pending students left for preview.</p>
+        <button onclick="window.location.href='/Register Students/'" class="btn">Register New Students</button>
+    </div>
+{% endblock %}
